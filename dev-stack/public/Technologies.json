@@ -25,7 +25,7 @@
     "category": "Frontend",
     "description": "A cybernetically enhanced web app compiler that creates fast and efficient applications.",
     "icon": "https://cdn.simpleicons.org/svelte",
-    "rating": 4.8,
+    "rating": 4.8,  
     "difficulty": "Intermediate",
     "badge": "Fast"
   },

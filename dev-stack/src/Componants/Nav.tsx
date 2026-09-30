@@ -16,8 +16,8 @@ const Nav = () => {
             </ul>
 
             <div className="flex justify-between items-center gap-2"> 
-                <button className=" px-4 py-2 rounded-4xl hover:bg-purple-700 hover:text-white">Sign In</button>
-                <button className="bg-[#d91a7e] text-white px-4 py-2 rounded-4xl hover:bg-purple-700">Sign Up</button>
+                <button className=" cursor-pointer">Sign In</button>
+                <button className="bg-pink-500 text-white px-4 py-2 rounded-4xl hover:bg-pink-700 cursor-pointer">Sign Up</button>
             </div>
         </div>
     );

@@ -3,7 +3,7 @@ import heroImg from '../assets/banner-stack.png';
 
 const Hero = () => {
     return (
-        <div className="container mx-auto py-4">
+        <div className="container mx-auto py-8">
 
 
             <div className="flex justify-between items-center">
@@ -27,7 +27,7 @@ const Hero = () => {
                         <button className="bg-gradient-to-r from-orange-500 to-pink-500 text-white font-bold py-2 px-4 rounded cursor-pointer">
                             Explore Technologies
                         </button>
-                        <button className=" hover:bg-gray-100  font-bold py-2 px-4 rounded border-gray-200 border-1">
+                        <button className=" hover:bg-gray-100  font-bold py-2 px-4 rounded border-gray-200 border-1 cursor-pointer">
                             Learn More
                         </button>
                     </div>
