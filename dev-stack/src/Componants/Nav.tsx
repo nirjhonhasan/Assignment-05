@@ -8,11 +8,11 @@ const Nav = () => {
                 <img src={logo} alt="Dev Stack" />
             
             <ul className="flex justify-between items-center gap-8 cursor-pointer">
-                <li><a href="#" className="text-purple-500 hover:text-purple-700 ">Home</a></li>
-                <li><a href="#" className=" hover:text-purple-700 ">Technologies</a></li>
-                <li><a href="#" className=" hover:text-purple-700 ">Project</a></li>
-                <li><a href="#" className=" hover:text-purple-700 ">About</a></li>
-                <li><a href="#" className=" hover:text-purple-700 ">Contact</a></li>
+                <li><a href="#" className="text-purple-500 hover:text-purple-700 font-light ">Home</a></li>
+                <li><a href="#" className=" hover:text-purple-700 font-light ">Technologies</a></li>
+                <li><a href="#" className=" hover:text-purple-700 font-light ">Project</a></li>
+                <li><a href="#" className=" hover:text-purple-700  font-light">About</a></li>
+                <li><a href="#" className=" hover:text-purple-700  font-light">Contact</a></li>
             </ul>
 
             <div className="flex justify-between items-center gap-2"> 
