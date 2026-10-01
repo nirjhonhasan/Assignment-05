@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { type Dispatch } from 'react';
 import type { Itypes } from '../../Types/Itypes';
+import { GiCheckMark } from "react-icons/gi";
 
 
-const Card = ({tech}: {tech: Itypes}) => {
+
+
+const Card = ({ tech, clickBtn, setClickBtn }: { tech: Itypes; clickBtn: number | null; setClickBtn: Dispatch<React.SetStateAction<number | null>> }) => {
+
+
+    const handleclick = () => {
+        setClickBtn(tech.id)
+    }
+
 
     return (
 
-            <div className="max-w-sm bg-white rounded-3xl p-6 border border-gray-100 shadow-sm flex flex-col justify-between">
+        <div className="max-w-sm bg-white rounded-3xl p-6 border border-gray-100 shadow-sm flex flex-col justify-between">
             {/* Header: React Logo & Popular Badge */}
             <div className="flex justify-between items-start mb-4">
                 <img src={tech.icon} alt={tech.name} className="w-8 h-8" />
@@ -31,7 +40,7 @@ const Card = ({tech}: {tech: Itypes}) => {
                 <span className="bg-slate-100 text-slate-600 px-3 py-1.5 rounded-md">
                     {tech.category}
                 </span>
-                
+
                 <span className="text-slate-500">
                     {tech.difficulty}
                 </span>
@@ -46,14 +55,17 @@ const Card = ({tech}: {tech: Itypes}) => {
 
 
             {/* Action Button */}
-            <button className="w-full bg-[#070b14] hover:bg-slate-800 text-white font-medium py-3 rounded-xl transition-colors duration-200">
-                Add to Stack
+            <button onClick={handleclick}
+                className="w-full bg-[#070b14] hover:bg-slate-800 text-white font-medium py-3 rounded-xl transition-colors 
+                duration-200 flex items-center gap-1 justify-center disabled:cursor-not-allowed disabled:bg-gray-400"
+                disabled={clickBtn === tech.id}>
+                
+                {clickBtn === tech.id ? (<><GiCheckMark /> Added to stack</>) : ("Add to Stack")}
             </button>
 
 
-
         </div>
-    );
-};
+    )
+}
 
 export default Card;

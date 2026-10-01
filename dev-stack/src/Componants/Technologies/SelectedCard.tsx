@@ -2,6 +2,9 @@ import React from 'react';
 import type { Itypes } from '../../Types/Itypes';
 
 const SelectedCard = ({techPromise}: {techPromise: Promise<Itypes[]>}) => {
+
+    console.log(techPromise);
+
     return (
         <div className="rounded-3xl border-gray-100 border-2 mt-10 text-start p-5">
             <h1 className='font-bold text-3xl'>Your Stack</h1>

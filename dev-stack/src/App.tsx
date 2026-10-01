@@ -6,6 +6,11 @@ import Hero from './Componants/Hero'
 import Nav from './Componants/Nav'
 import Technologies from './Componants/Technologies/Technologies'
 import type { Itypes } from './Types/Itypes'
+import Footer from './Componants/Footer'
+
+// import { ToastContainer } from 'react-toastify';
+
+
 
 
 
@@ -26,13 +31,14 @@ const TechnologiesResponse = async (): Promise<Itypes[]> => {
     return (
       <>
 
-        <Nav />
+        <Nav/>
         <Hero />
 
         <Suspense fallback={<div>Loading...</div>}>
           <Technologies techPromise={techPromise} />
         </Suspense>
 
+        <Footer/>
 
       </>
     )

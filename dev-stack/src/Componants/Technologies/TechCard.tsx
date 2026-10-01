@@ -1,8 +1,14 @@
-import React, { use } from 'react';
+import React, { use, type Dispatch } from 'react';
 import type { Itypes } from '../../Types/Itypes';
 import Card from './Card';
 
-const TechCard = ({ techPromise }: { techPromise: Promise<Itypes[]> }) => {
+interface TechnologiesProps {
+    clickBtn: string;
+    setClickBtn: Dispatch<React.SetStateAction<string>>;
+    techPromise: Promise<Itypes[]>;
+}
+
+const TechCard = ({ techPromise, clickBtn, setClickBtn }: TechnologiesProps) => {
 
     const techData = use(techPromise);
 
@@ -11,11 +17,11 @@ const TechCard = ({ techPromise }: { techPromise: Promise<Itypes[]> }) => {
             techData.map((tech: Itypes, index: number) => {
                 return <div key={index}>
 
-                    <Card tech={tech} />
+                    <Card tech={tech} clickBtn={clickBtn} setClickBtn={setClickBtn}/>
 
                 </div>
             })
-        };
+        }
     </div>
 
 
