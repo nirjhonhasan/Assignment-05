@@ -1,15 +1,18 @@
-import React, { type Dispatch } from 'react';
+import React, { useState, type Dispatch } from 'react';
 import type { Itypes } from '../../Types/Itypes';
 import { GiCheckMark } from "react-icons/gi";
 
 
 
 
-const Card = ({ tech, clickBtn, setClickBtn }: { tech: Itypes; clickBtn: number | null; setClickBtn: Dispatch<React.SetStateAction<number | null>> }) => {
 
+
+const Card = ({ tech}: { tech: Itypes }) => {
+
+    const [isSlected, setIsSelected] = useState(false);
 
     const handleclick = () => {
-        setClickBtn(tech.id)
+        setIsSelected(!isSlected);
     }
 
 
@@ -58,14 +61,14 @@ const Card = ({ tech, clickBtn, setClickBtn }: { tech: Itypes; clickBtn: number 
             <button onClick={handleclick}
                 className="w-full bg-[#070b14] hover:bg-slate-800 text-white font-medium py-3 rounded-xl transition-colors 
                 duration-200 flex items-center gap-1 justify-center disabled:cursor-not-allowed disabled:bg-gray-400"
-                disabled={clickBtn === tech.id}>
+                disabled={isSlected}>
                 
-                {clickBtn === tech.id ? (<><GiCheckMark /> Added to stack</>) : ("Add to Stack")}
+                {isSlected ? (<><GiCheckMark /> Added to stack</>) : ("Add to Stack")}
             </button>
 
 
         </div>
-    )
-}
+    );
+};
 
 export default Card;

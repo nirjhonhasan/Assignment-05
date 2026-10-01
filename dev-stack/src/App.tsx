@@ -34,7 +34,8 @@ const TechnologiesResponse = async (): Promise<Itypes[]> => {
         <Nav/>
         <Hero />
 
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="text-sm font-medium flex items-center justify-center">
+        Loading...</div>}>
           <Technologies techPromise={techPromise} />
         </Suspense>
 
