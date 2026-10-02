@@ -1,6 +1,7 @@
 import React, { useState, type Dispatch } from 'react';
 import type { Itypes } from '../../Types/Itypes';
 import { GiCheckMark } from "react-icons/gi";
+import { toast } from 'react-toastify';
 
 interface CardProps {
     tech: Itypes;
@@ -15,12 +16,14 @@ const Card = ({ tech , selectedTech, setSelectedTech}: CardProps) => {
 
     const [isSlected, setIsSelected] = useState(false);
 
+
+
     const handleclick = () => {
         setIsSelected(!isSlected);
-
-
+        toast(`${tech.name} has been added to your stack.`);
         setSelectedTech([...selectedTech, tech]);
     }
+
 
 
 
@@ -34,6 +37,8 @@ const Card = ({ tech , selectedTech, setSelectedTech}: CardProps) => {
                     {tech.badge}
                 </span>
             </div>
+
+
 
 
             {/* Title & Description */}
@@ -69,9 +74,9 @@ const Card = ({ tech , selectedTech, setSelectedTech}: CardProps) => {
             <button onClick={handleclick}
                 className="w-full bg-[#070b14] hover:bg-slate-800 text-white font-medium py-3 rounded-xl transition-colors 
                 duration-200 flex items-center gap-1 justify-center disabled:cursor-not-allowed disabled:bg-gray-400"
-                disabled={isSlected}>
+                disabled={selectedTech.some((t) => t.id === tech.id)}>
                 
-                {isSlected ? (<><GiCheckMark /> Added to stack</>) : ("Add to Stack")}
+                {selectedTech.some((t) => t.id === tech.id) ? (<><GiCheckMark /> Added to stack</>) : ("Add to Stack")}
             </button>
 
 

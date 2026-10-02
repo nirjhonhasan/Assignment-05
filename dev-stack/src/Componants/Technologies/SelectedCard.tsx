@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Itypes } from '../../Types/Itypes';
 import { RxCross2 } from 'react-icons/rx';
+import { toast } from 'react-toastify';
 
 
 interface SelectedCardProps {
@@ -12,13 +13,22 @@ interface SelectedCardProps {
 const SelectedCard = ({ selectedTech, setSelectedTech }: SelectedCardProps) => {
 
 
-    const handleRemoveTech = (deleteTech: Itypes)=>{
+    const handleRemoveTech = (deleteTech: Itypes) => {
 
         const deleteTechCard = selectedTech.filter((tech: Itypes) => tech.name !== deleteTech.name);
 
+        toast(`${deleteTech.name} has been removed from your stack.`);
 
         setSelectedTech(deleteTechCard);
     }
+
+    const handleRemoveAllTech = () => {
+        setSelectedTech([]);
+        toast(`All technologies have been removed from your stack.`);
+    }
+
+
+
 
 
     return (
@@ -33,11 +43,14 @@ const SelectedCard = ({ selectedTech, setSelectedTech }: SelectedCardProps) => {
             {/* ======================== */}
             {/* ======================== */}
             {/* ======================== */}
+
             {selectedTech.length === 0 ?
 
                 (<div className='min-h-10 text-center text-gray-400 flex items-center justify-center border border-dashed border-gray-300 rounded-2xl mt-5 p-5'>
                     <h2 >Your stack is empty.</h2>
-                </div>) :
+                </div>)
+                :
+
                 (
                     selectedTech.map((techDetail: Itypes, index: number) => {
                         return (
@@ -54,9 +67,9 @@ const SelectedCard = ({ selectedTech, setSelectedTech }: SelectedCardProps) => {
                                     </div>
 
 
-                                    <span onClick={()=>handleRemoveTech(techDetail)}
-                                    className="hover:text-red-500 cursor-pointer text-2xl">
-                                    <RxCross2/>
+                                    <span onClick={() => handleRemoveTech(techDetail)}
+                                        className="hover:text-red-500 cursor-pointer text-2xl">
+                                        <RxCross2 />
                                     </span>
 
 
@@ -66,13 +79,16 @@ const SelectedCard = ({ selectedTech, setSelectedTech }: SelectedCardProps) => {
                         )
                     })
                 )}
+            {/* ======================== */}
+            {/* ======================== */}
+            {/* ======================== */}
 
 
             {
-                selectedTech.length > 0 ? 
-                (<button onClick={() => setSelectedTech([])} className="mt-5 w-full border-1 border-red-500 text-red py-2 px-4 rounded-lg
+                selectedTech.length > 0 ?
+                    (<button onClick={handleRemoveAllTech} className="mt-5 w-full border-1 border-red-500 text-red py-2 px-4 rounded-lg
                 hover:text-white hover:bg-red-600 transition-colors duration-300 cursor-pointer"
-                >Remove All</button>) : ("")
+                    >Remove All</button>) : ("")
             }
 
         </div>

@@ -8,8 +8,6 @@ import Technologies from './Componants/Technologies/Technologies'
 import type { Itypes } from './Types/Itypes'
 import Footer from './Componants/Footer'
 
-// import { ToastContainer } from 'react-toastify';
-
 
 
 
@@ -40,6 +38,8 @@ const TechnologiesResponse = async (): Promise<Itypes[]> => {
         </Suspense>
 
         <Footer/>
+
+        
 
       </>
     )
