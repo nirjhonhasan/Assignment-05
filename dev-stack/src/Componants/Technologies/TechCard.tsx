@@ -5,10 +5,13 @@ import Card from './Card';
 interface TechnologiesProps {
 
     techPromise: Promise<Itypes[]>;
+    selectedTech: Itypes[];
+    setSelectedTech: React.Dispatch<React.SetStateAction<Itypes[]>>;
+
 }
 
 
-const TechCard = ({ techPromise }: TechnologiesProps) => {
+const TechCard = ({ techPromise, selectedTech, setSelectedTech }: TechnologiesProps) => {
 
     const techData = use(techPromise);
 
@@ -17,7 +20,7 @@ const TechCard = ({ techPromise }: TechnologiesProps) => {
             techData.map((tech: Itypes, index: number) => {
                 return <div key={index}>
 
-                    <Card tech={tech} />
+                    <Card tech={tech} selectedTech={selectedTech} setSelectedTech={setSelectedTech}/>
 
                 </div>
             })

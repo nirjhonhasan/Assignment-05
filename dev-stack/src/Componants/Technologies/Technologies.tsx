@@ -1,14 +1,14 @@
-
+import React, { useState } from 'react';
 import TechCard from './TechCard';
 import SelectedCard from './SelectedCard';
 import { type Itypes } from '../../Types/Itypes.ts';
 
 
 
-
 const Technologies = ({ techPromise }: { techPromise: Promise<Itypes[]> }) => {
 
- 
+    const [selectedTech, setSelectedTech] = useState<Itypes[]>([]);
+
 
 
     return (
@@ -24,16 +24,16 @@ const Technologies = ({ techPromise }: { techPromise: Promise<Itypes[]> }) => {
 
             <div className="container mx-auto grid grid-cols-4 gap-6">
                 <div className="col-span-3">
-                    <TechCard techPromise={techPromise} />
+                    <TechCard techPromise={techPromise} selectedTech={selectedTech} setSelectedTech={setSelectedTech}/>
                 </div>
 
                 <div className="col-span-1">
-                    <SelectedCard techPromise={techPromise}/>
+                    <SelectedCard selectedTech={selectedTech} setSelectedTech={setSelectedTech} />
                 </div>
+
+
+
             </div>
-
-
-
         </div>
 
 

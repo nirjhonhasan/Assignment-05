@@ -2,18 +2,26 @@ import React, { useState, type Dispatch } from 'react';
 import type { Itypes } from '../../Types/Itypes';
 import { GiCheckMark } from "react-icons/gi";
 
+interface CardProps {
+    tech: Itypes;
+    selectedTech: Itypes[];
+    setSelectedTech: Dispatch<React.SetStateAction<Itypes[]>>;
+}
 
 
 
 
-
-const Card = ({ tech}: { tech: Itypes }) => {
+const Card = ({ tech , selectedTech, setSelectedTech}: CardProps) => {
 
     const [isSlected, setIsSelected] = useState(false);
 
     const handleclick = () => {
         setIsSelected(!isSlected);
+
+
+        setSelectedTech([...selectedTech, tech]);
     }
+
 
 
     return (
