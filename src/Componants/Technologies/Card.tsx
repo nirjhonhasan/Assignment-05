@@ -81,7 +81,7 @@ const Card = ({ tech , selectedTech, setSelectedTech}: CardProps) => {
 
 
         </div>
-    );
+    )
 };
 
 export default Card;

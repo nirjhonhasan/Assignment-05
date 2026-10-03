@@ -24,7 +24,7 @@ const TechCard = ({ techPromise, selectedTech, setSelectedTech }: TechnologiesPr
 
                 </div>
             })
-        };
+        }
     </div>
 
 
