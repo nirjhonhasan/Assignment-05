@@ -6,16 +6,16 @@ const Hero = () => {
         <div className="container mx-auto py-8">
 
 
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center md:flex-row flex-col gap-8">
 
                 <div className="flex flex-col gap-4 w-[60%] pr-4">
-                    <h1 className="text-7xl font-bold">
+                    <h1 className="text-4xl md:text-7xl font-bold">
                         Build Your Ideal
                         <span className="block bg-gradient-to-r from-orange-500 via-pink-500 to-indigo-700  bg-clip-text text-transparent">
                             Development Stack
                         </span>
                     </h1>
-                    <p className="text-gray-400  font-extralight text-2xl ">
+                    <p className="text-gray-400  font-extralight md:text-2xl text-sm leading-relaxed md:align-baseline align-center">
                         Explore frontend, backend, database, and tooling options,<br />
                         compare them side by side, and put together the stack that fits your<br />
                         next project.
